@@ -19,7 +19,7 @@ for pageNumber in range(1, max_pageNumber+1):
     cover = soup.find_all(class_='lazy')
     for x in cover:
         cover_name = x.get('alt').replace(' ', '').replace(',', '').replace('?', '')
-        if not(os._exists(save_location + cover_name)):
+        if not(os.path.exists(save_location + cover_name)):
             print cover_name
             cover_url = x.parent.get('href')
             cover_html_doc = fetch(cover_url).text
